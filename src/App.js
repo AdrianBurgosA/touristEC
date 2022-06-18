@@ -21,12 +21,12 @@ import './theme/variables.css';
 
 setupIonicReact();
 
-const App: React.FC = () => {
-  return (
-    <IonApp>
-      <Login/>
-    </IonApp>
-  );
-};
+const App = () => {
+    return (
+        <IonApp>
+          <Login/>
+        </IonApp>
+      );
+}
 
-export default App;
+export default App
