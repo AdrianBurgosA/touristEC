@@ -2,7 +2,7 @@ import { IonApp, setupIonicReact } from '@ionic/react';
 import Login from './pages/Login';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
-
+import './styles/login-page.css'
 /* Basic CSS for apps built with Ionic */
 import '@ionic/react/css/normalize.css';
 import '@ionic/react/css/structure.css';
@@ -18,13 +18,15 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Register from './pages/Register';
+import Places from './pages/PlacesCosta'
 
 setupIonicReact();
 
 const App = () => {
     return (
-        <IonApp>
-          <Login/>
+        <IonApp class= 'main'>
+          <Register/>
         </IonApp>
       );
 }
