@@ -26,7 +26,7 @@ setupIonicReact();
 const App = () => {
     return (
         <IonApp class= 'main'>
-          <Register/>
+          <Places/>
         </IonApp>
       );
 }
