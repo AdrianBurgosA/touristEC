@@ -2,13 +2,21 @@ const express = require("express")
 const router = express.Router()
 const ciudadesSchema = require("../modelos/ciudades")
 
-//leer ciudades (READ)
+//leer ciudades por region (READ)
 router.get("/ciudades/:region", (req, res) => {
     const {region} = req.params
     ciudadesSchema.find({region: region})
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))
 })
+
+//leer todas las ciudades (READ)
+router.get("/ciudades", (req, res) => {
+    ciudadesSchema.find()
+        .then((data) => res.json(data))
+        .catch((error) => res.json({ message: error }))
+})
+
 
 //Buscar una ciudad (FIND)
 router.get("/ciudades/:id", (req, res) => {
