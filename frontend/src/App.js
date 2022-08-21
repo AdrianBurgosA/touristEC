@@ -46,7 +46,7 @@ const App = () => {
       <IonReactRouter>
 
         <IonRouterOutlet id='menu1'>
-          <Route path='/login' component={Login} exact />
+          <Route path='/' component={Login} exact />
           <Route path='/registro' component={Register} exact />
           <Route path='/perfil' component={Perfil} exact />
           <Route path='/costa' component={PlacesCosta} exact />
@@ -58,7 +58,7 @@ const App = () => {
           <Route path='/galapagos' component={PlacesGalapagos} exact />
           <Route path='/galapagosAdmin' component={PlacesGalapagosAdmin} exact />
           <Route path='/agregar' component={AgregarSitioTuristico} exact />
-          <Redirect to='/costa' />
+          <Redirect to='/' />
         </IonRouterOutlet>
 
       </IonReactRouter>

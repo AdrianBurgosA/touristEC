@@ -1,7 +1,14 @@
 const moongose = require("mongoose")
 
 const usuariosSchema = moongose.Schema({
-
+    user:{
+        type: 'string',
+        required: true
+    },
+    password: {
+        type: 'string',
+        required: true
+    },
     nombres:{
         type: 'string',
         required: true
@@ -15,7 +22,7 @@ const usuariosSchema = moongose.Schema({
         required: true
     },
     tipoUsuario:{
-        type: 'number',
+        type: 'number', // 0 ---> admin    1 ---> user
         required: true
     }
 

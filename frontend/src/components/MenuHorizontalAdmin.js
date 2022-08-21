@@ -34,7 +34,7 @@ const MenuHorizontalAdmin = () => {
                 <IonLabel>Agregar</IonLabel>
             </IonTabButton>
 
-            <IonTabButton tab="salir" href="/salir">
+            <IonTabButton tab="salir" href="/">
                 <IonIcon icon={exit} />
                 <IonLabel>Salir</IonLabel>
             </IonTabButton>

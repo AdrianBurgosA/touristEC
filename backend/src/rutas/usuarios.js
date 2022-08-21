@@ -2,6 +2,14 @@ const express = require("express")
 const router = express.Router()
 const usuariosSchema = require("../modelos/usuarios")
 
+//login 
+router.post("/login",(req,res) => {
+    const {username, pass} = req.body
+    usuariosSchema.findOne({user: username, password: pass})
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}))
+})
+
 //leer usuarios (READ)
 router.get("/usuarios", (req, res) => {
     usuariosSchema.find()
