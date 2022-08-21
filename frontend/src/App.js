@@ -28,9 +28,14 @@ import Login from './pages/Login';
 import Register from './pages/Register'
 import Perfil from './pages/Perfil'
 import PlacesCosta from './pages/PlacesCosta'
+import PlacesCostaAdmin from './pages/PlacesCostaAdmin'
 import PlacesSierra from './pages/PlacesSierra'
+import PlacesSierraAdmin from './pages/PlacesSierraAdmin'
 import PlacesOriente from './pages/PlacesOriente'
+import PlacesOrienteAdmin from './pages/PlacesOrienteAdmin'
 import PlacesGalapagos from './pages/PlacesGalapagos'
+import PlacesGalapagosAdmin from './pages/PlacesGalapagosAdmin'
+import AgregarSitioTuristico from './pages/AgregarSitioTuristico'
 
 setupIonicReact();
 
@@ -45,9 +50,14 @@ const App = () => {
           <Route path='/registro' component={Register} exact />
           <Route path='/perfil' component={Perfil} exact />
           <Route path='/costa' component={PlacesCosta} exact />
+          <Route path='/costaAdmin' component={PlacesCostaAdmin} exact />
           <Route path='/sierra' component={PlacesSierra} exact />
+          <Route path='/sierraAdmin' component={PlacesSierraAdmin} exact />
           <Route path='/oriente' component={PlacesOriente} exact />
+          <Route path='/orienteAdmin' component={PlacesOrienteAdmin} exact />
           <Route path='/galapagos' component={PlacesGalapagos} exact />
+          <Route path='/galapagosAdmin' component={PlacesGalapagosAdmin} exact />
+          <Route path='/agregar' component={AgregarSitioTuristico} exact />
           <Redirect to='/costa' />
         </IonRouterOutlet>
 

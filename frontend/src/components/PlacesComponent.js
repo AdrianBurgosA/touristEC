@@ -9,9 +9,12 @@ import {
     IonTitle,
     IonToolbar,
     IonHeader,
-    IonButtons,
-    IonMenuButton
+    IonAvatar,
+    IonChip,
+    IonLabel
 } from '@ionic/react'
+import avatar from '../img/avatar.png'
+import '../styles/login-page.css'
 
 const PlacesComponent = (props) => {
     const sitiosTuristicos = props.sitiosTuristicos
@@ -31,8 +34,20 @@ const PlacesComponent = (props) => {
         <>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle> {region} </IonTitle>
                     
+                    <div class='flex'>
+                        <IonTitle class='titulo'> 
+                            {region} 
+                        </IonTitle>
+                        
+                        <IonChip outline={true} class='chip'>
+                            <IonAvatar>
+                                <img src = {avatar} />
+                            </IonAvatar>
+                            <IonLabel>Perfil</IonLabel>
+                        </IonChip>
+
+                    </div>
 
                 </IonToolbar>
             </IonHeader>

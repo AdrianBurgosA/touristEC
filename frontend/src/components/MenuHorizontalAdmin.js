@@ -4,29 +4,34 @@ import {
     IonIcon,
     IonLabel
 } from '@ionic/react'
-import { sunny, thunderstorm, bug, fish, exit } from 'ionicons/icons';
+import { sunny, thunderstorm, bug, fish, add, exit } from 'ionicons/icons';
 
-const MenuHorizontal = () => {
+const MenuHorizontalAdmin = () => {
     return (
         <IonTabBar slot="bottom">
-            <IonTabButton tab="costa" href="/costa">
+            <IonTabButton tab="costa" href="/costaAdmin">
                 <IonIcon icon={sunny} />
                 <IonLabel>Costa</IonLabel>
             </IonTabButton>
 
-            <IonTabButton tab="sierra" href="/sierra">
+            <IonTabButton tab="sierra" href="/sierraAdmin">
                 <IonIcon icon={thunderstorm} />
                 <IonLabel>Sierra</IonLabel>
             </IonTabButton>
 
-            <IonTabButton tab="oriente" href="/oriente">
+            <IonTabButton tab="oriente" href="/orienteAdmin">
                 <IonIcon icon={bug} />
                 <IonLabel>Oriente</IonLabel>
             </IonTabButton>
 
-            <IonTabButton tab="galapagos" href="/galapagos">
+            <IonTabButton tab="galapagos" href="/galapagosAdmin">
                 <IonIcon icon={fish} />
                 <IonLabel>Galápagos</IonLabel>
+            </IonTabButton>
+
+            <IonTabButton tab="agregar" href="/agregar">
+                <IonIcon icon={add} />
+                <IonLabel>Agregar</IonLabel>
             </IonTabButton>
 
             <IonTabButton tab="salir" href="/salir">
@@ -36,4 +41,4 @@ const MenuHorizontal = () => {
         </IonTabBar>
     )
 }
-export default MenuHorizontal
+export default MenuHorizontalAdmin
