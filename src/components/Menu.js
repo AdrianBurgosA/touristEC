@@ -1,25 +1,53 @@
-import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonRouterOutlet } from '@ionic/react';
+import {
+  IonMenu, 
+  IonHeader, 
+  IonToolbar, 
+  IonTitle, 
+  IonContent, 
+  IonList, 
+  IonItem,
+  IonIcon,
+  IonLabel,
+  IonMenuToggle,
+  IonRouterOutlet
+ } from '@ionic/react'
+import {person, exit} from 'ionicons/icons'
 
 const Menu = () => {
     return(
-        <>
-            <IonMenu side="start" menuId="custom" className="my-custom-menu">
-            <IonHeader>
-                <IonToolbar color="tertiary">
-                <IonTitle>Custom Menu</IonTitle>
-                </IonToolbar>
-            </IonHeader>
-            <IonContent>
-                <IonList>
-                <IonItem>Menu Item</IonItem>
-                <IonItem>Menu Item</IonItem>
-                <IonItem>Menu Item</IonItem>
-                <IonItem>Menu Item</IonItem>
-                <IonItem>Menu Item</IonItem>
-                </IonList>
-            </IonContent>
-            </IonMenu>
-        </>
+      <>
+        <IonMenu side="start" contentId="menu1">
+
+          <IonHeader>
+            <IonToolbar color="primary">
+                <IonTitle>Menu de inicio</IonTitle>
+            </IonToolbar>
+          </IonHeader>
+
+          <IonContent>
+            <IonList>
+
+              <IonMenuToggle>
+                <IonItem routerLink='/perfil' routerDirection='none' lines='none'>
+                  <IonIcon color='medium' slot='start' icon={person} />
+                  <IonLabel>Perfil</IonLabel>
+                </IonItem>
+              </IonMenuToggle>
+
+              <IonMenuToggle>
+                <IonItem routerLink='/perfil' routerDirection='none' lines='none'>
+                  <IonIcon color='medium' slot='start' icon={exit} />
+                  <IonLabel>Salir</IonLabel>
+                </IonItem>
+              </IonMenuToggle>
+
+            </IonList>
+          </IonContent>
+        </IonMenu>
+
+        <IonRouterOutlet></IonRouterOutlet>
+      </>
+      
     )
 }
 
