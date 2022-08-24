@@ -46,7 +46,7 @@ const Login = () => {
                 <IonButton expand="block" color="light" onClick={onHandleLogin}>
                     Iniciar Sesion
                 </IonButton><br/>
-                <IonButton expand="block" color="dark">
+                <IonButton expand="block" color="dark" href="/registro">
                     Registrarse
                 </IonButton>
             </div>

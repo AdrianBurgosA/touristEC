@@ -48,14 +48,14 @@ export async function obtenerSitiosTuristicos(ciudades){
       const response = await axios({
           url: `${baseUrl}/sitiosTuristicos`,
           method: 'POST',
-          data: value,
+          data: value
       })
       
       setValue({
-        nombre: '',
-        descripcion: '',
-        ciudad: '0',
-        imagen: ''
+        nombre: "",
+        ciudad: "",
+        descripcion: "",
+        imagen: ""
       })
   
       return response
@@ -63,10 +63,10 @@ export async function obtenerSitiosTuristicos(ciudades){
     }catch(error){
       console.log(error)
       setValue({
-        nombre: '',
-        descripcion: '',
-        ciudad: '0',
-        imagen: ''
+        nombre: "",
+        ciudad: "",
+        descripcion: "",
+        imagen: ""
       })
     }
   }

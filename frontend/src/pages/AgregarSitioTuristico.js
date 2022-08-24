@@ -25,7 +25,7 @@ const AgregarSitioTuristico = () => {
     }, [])
 
     async function handleSubmit(data) {
-        const response = await agregarSitioTuristico(data, setSitioTuristico)
+        const response = await agregarSitioTuristico(sitioTuristico, setSitioTuristico)
 
         if (response.status == 200) {
             setAlerta(true)

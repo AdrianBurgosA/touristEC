@@ -29,7 +29,6 @@ const AgregarSitio = (props) => {
     const handleChange = (event) => {
         const { name, value } = event.target
         setSitioTuristico({ ...sitioTuristico, [name]: value})
-        console.log(sitioTuristico)
     }
 
     const handleSubmitInternal = (e) => {
@@ -37,7 +36,6 @@ const AgregarSitio = (props) => {
         handleSubmit(sitioTuristico)
     }
     
-
     return(
         <>
             <IonHeader>
