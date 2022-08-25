@@ -1,7 +1,7 @@
 import {
     IonSelect,
     IonSelectOption,
-    IonCardContent,
+    IonAlert,
     IonItem, 
     IonCardSubtitle, 
     IonCardTitle, 
@@ -18,22 +18,33 @@ import {
 import avatar from '../img/avatar.png'
 import '../styles/login-page.css'
 import '../styles/login-page.css'
+import { agregarSitioTuristico } from '../services/sitiosTuristicos'
+import { useState } from "react"
 
 const AgregarSitio = (props) => {
 
     const ciudades = props.ciudades
     const sitioTuristico = props.sitioTuristico
     const setSitioTuristico = props.setSitioTuristico
-    const handleSubmit = props.handleSubmit
+    const [alerta, setAlerta] = useState(false)
 
     const handleChange = (event) => {
         const { name, value } = event.target
         setSitioTuristico({ ...sitioTuristico, [name]: value})
     }
 
-    const handleSubmitInternal = (e) => {
+    async function handleSubmitInternal(e){
         e.preventDefault()
-        handleSubmit(sitioTuristico)
+        const response = await agregarSitioTuristico(sitioTuristico, setSitioTuristico)
+        if (response.status == 200) {
+            setAlerta(true)
+            setSitioTuristico({
+                nombre: "",
+                ciudad: "",
+                descripcion: "",
+                imagen: ""
+            })
+        }
     }
     
     return(
@@ -93,11 +104,19 @@ const AgregarSitio = (props) => {
                     </IonItem><br/>
                     
                     <IonButton expand="block" color="light" type='submit'>
-                        Registrarse
+                        Registrar
                     </IonButton><br/>
                 </form>
                 
             </IonContent>
+
+            <IonAlert
+                isOpen={alerta}
+                onDidDismiss={() => setAlerta(false)}
+                header="Registro correcto!"
+                subHeader="Sitio turístico guardado"
+                buttons={['OK']}
+            />
         </>
     )
 }

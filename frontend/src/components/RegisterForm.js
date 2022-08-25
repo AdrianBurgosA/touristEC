@@ -79,7 +79,7 @@ const RegisterForm = (props) => {
         setAlertaConfirmacion(false)
         history.push('/login')
     }
-
+    
     return(
         <>
             <IonHeader>

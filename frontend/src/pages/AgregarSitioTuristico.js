@@ -14,8 +14,7 @@ const AgregarSitioTuristico = () => {
         descripcion: "",
         imagen: ""
     })
-    const [alerta, setAlerta] = useState(false)
-
+    
     useEffect(() => {
         async function cargarCiudades() {
             const data = await obtenerTodasCiudades()
@@ -24,13 +23,13 @@ const AgregarSitioTuristico = () => {
         cargarCiudades()
     }, [])
 
-    async function handleSubmit(data) {
+    /*async function handleSubmit(data) {
         const response = await agregarSitioTuristico(data, setSitioTuristico)
 
         if (response.status == 200) {
             setAlerta(true)
         }
-    }
+    }*/
 
     return(
         <IonPage>
@@ -38,15 +37,8 @@ const AgregarSitioTuristico = () => {
                 ciudades = {ciudades} 
                 sitioTuristico = {sitioTuristico}
                 setSitioTuristico = {setSitioTuristico}
-                handleSubmit = {handleSubmit}
             />
-            <IonAlert
-                isOpen={alerta}
-                onDidDismiss={() => setAlerta(false)}
-                header="Registro correcto!"
-                subHeader="Sitio turístico guardado"
-                buttons={['OK']}
-            />
+            
             <MenuHorizontalAdmin />
 
         </IonPage>

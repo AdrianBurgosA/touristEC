@@ -52,10 +52,10 @@ export async function obtenerSitiosTuristicos(ciudades){
       })
       
       setValue({
-        nombre: "",
-        ciudad: "",
-        descripcion: "",
-        imagen: ""
+        nombre: '',
+        ciudad: '',
+        descripcion: '',
+        imagen: ''
       })
   
       return response
