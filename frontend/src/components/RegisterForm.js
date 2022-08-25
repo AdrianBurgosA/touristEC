@@ -2,6 +2,7 @@ import { IonInput, IonItem, IonLabel, IonHeader, IonTitle, IonButton, IonToolbar
 import React, { useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import '../styles/login-page.css'
+import { useHistory } from "react-router-dom";
 
 const RegisterForm = (props) => {
     
@@ -14,9 +15,11 @@ const RegisterForm = (props) => {
         passwordSinConfirmacion: "",
         password: ""
     })
-    const [validation, setValidation] = useState(false)
+    const [validation, setValidation] = useState(true)
     const [alertaPassword, setAlertaPassword] = useState(false)
     const [alerta, setAlerta] = useState(false)
+    const [alertaConfirmacion, setAlertaConfirmacion] = useState(false)
+    const history = useHistory()
     
     const validar = () => {
         const userName = usuario.user
@@ -26,11 +29,6 @@ const RegisterForm = (props) => {
         for (var i = 0; i < usuarios.data.length; i++) {
             if (usuarios.data[i].user === userName || usuarios.data[i].email === email) {
                 setValidation(false)
-                console.log(validation)
-                console.log(usuarios.data[i].user)
-                console.log(userName)
-                console.log(usuarios.data[i].email)
-                console.log(email)
                 
             }else if (usuarios.data[i].user !== userName && usuarios.data[i].email !== email) {
                 aux++
@@ -38,11 +36,8 @@ const RegisterForm = (props) => {
         }
         
         if (aux === usuarios.data.length) {
-            console.log(aux)
             setValidation(true)
         }
-
-        console.log(validation)
     }
 
     const handleChange = (event) => {
@@ -68,10 +63,21 @@ const RegisterForm = (props) => {
         }else if (validation === true && usuario.nombres !== "" && usuario.apellidos !== "" && usuario.email !== ""
             && usuario.user !==  "" && usuario.password !== "") {
             handleSubmit(usuario)
+            setAlertaConfirmacion(true)
+
+            setPasswordValues({
+                passwordSinConfirmacion: "",
+                password: ""
+            })
         
         }else {
             setAlerta(true)
         }
+    }
+
+    const confirmacionCompletada = () => {
+        setAlertaConfirmacion(false)
+        history.push('/login')
     }
 
     return(
@@ -141,6 +147,14 @@ const RegisterForm = (props) => {
                 onDidDismiss={() => setAlerta(false)}
                 header="Usuario o correo ya registrado"
                 subHeader="Cambie su usuario y/o correo"
+                buttons={['OK']}
+            />
+
+            <IonAlert
+                isOpen={alertaConfirmacion}
+                onDidDismiss = {confirmacionCompletada}
+                header="Usuario registrado con éxito"
+                subHeader="El usuario fue registrado en la BD"
                 buttons={['OK']}
             />
         </>

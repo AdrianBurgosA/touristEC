@@ -1,6 +1,6 @@
 import RegisterForm from "../components/RegisterForm"
 import { useState, useEffect } from "react"
-import { obtenerUsuarios, agregarUsuario } from "../services/usuarios"
+import { obtenerUsuarios, agregarUsuario } from "../services/usuarios" 
 
 const Register = () => {
     
@@ -13,7 +13,6 @@ const Register = () => {
         password: "",
         tipoUsuario: 1
     })
-    const [alerta, setAlerta] = useState(false)
 
     useEffect(() => {
         async function cargarUsuarios() {
@@ -25,10 +24,6 @@ const Register = () => {
 
     async function handleSubmit(data) {
         const response = await agregarUsuario(data, setUsuario)
-
-        if (response.status == 200) {
-            setAlerta(true)
-        }
     }
 
     return(
